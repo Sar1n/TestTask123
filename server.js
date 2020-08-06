@@ -12,9 +12,6 @@ app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html'));
 });
 
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
-
 
 const brotli = require('brotli');
 const fs = require('fs');
@@ -48,3 +45,7 @@ dirs.forEach(dir => {
         }
     })
 })
+
+
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
