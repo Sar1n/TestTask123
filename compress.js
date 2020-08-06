@@ -10,11 +10,12 @@ const brotliSettings = {
     lgwin: 12 // default
 };
 
-var dirs = ['.'];
+var dirs = ['./dist/TestLogin'];
 
 dirs.forEach(dir => {
     fs.readdirSync(dir).forEach(file => {
         if (file.endsWith('.js') || file.endsWith('.css') || file.endsWith('.html')) {
+            //console.log(file);
             // brotli
             const result = brotli.compress(fs.readFileSync(dir + '/' + file), brotliSettings);
             fs.writeFileSync(dir + '/' + file + '.br', result);
