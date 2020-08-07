@@ -47,7 +47,7 @@ dirs.forEach(dir => {
 var express = require("express");
 var expressStaticGzip = require("express-static-gzip");
 var app = express();
-app.use("/", expressStaticGzip("/dist/TestLogin"));
+//app.use("/", expressStaticGzip("/dist/TestLogin"));
 
 
 
