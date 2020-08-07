@@ -48,7 +48,7 @@ var express = require("express");
 var expressStaticGzip = require("express-static-gzip");
 var app = express();
 //app.use("/", expressStaticGzip("/dist/TestLogin"));
-var compress = require('compression');
+const compression = require('compression');
 
 
 //Install express server
@@ -57,9 +57,9 @@ const path = require('path');
 // const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/TestLogin'));
+//app.use(express.static(__dirname + '/dist/TestLogin'));
 
-//app.use(compression());
+app.use(compression());
 
 app.get('/*', function(req,res) {    
     res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html'));
