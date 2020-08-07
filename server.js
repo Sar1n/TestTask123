@@ -52,7 +52,11 @@ const path = require('path');
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.gzipStatic(__dirname + '/dist/TestLogin'));
+//app.use(express.gzipStatic(__dirname + '/dist/TestLogin'));
+
+
+connect()
+  .use(gzipStatic(__dirname + '/dist/TestLogin'))
 
 app.get('/*', function(req,res) {
     
