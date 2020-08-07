@@ -1,4 +1,4 @@
-// var gzipStatic = require('connect-gzip-static');
+var gzipStatic = require('connect-gzip-static');
 // var oneDay = 86400000;
 
 // connect()
