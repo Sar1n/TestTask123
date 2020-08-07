@@ -57,12 +57,15 @@ const path = require('path');
 // const app = express();
 
 // Serve only the static files form the dist directory
-// app.use(express.get(__dirname + '/dist/TestLogin'));
+app.use(express.static(__dirname + '/dist/TestLogin'));
 
-app.get('/*', function(req,res) {
+var compress = require('compression');
+app.use(express.compress());
+
+// app.get('/*', function(req,res) {
     
-res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html.br'));
-});
+// res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html'));
+// });
 
 
 // Start the app by listening on the default Heroku port
