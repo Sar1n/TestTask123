@@ -60,12 +60,11 @@ const path = require('path');
 app.use(express.static(__dirname + '/dist/TestLogin'));
 
 var compress = require('compression');
-app.use(express.compress());
+app.use(compression());
 
-// app.get('/*', function(req,res) {
-    
-// res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html'));
-// });
+app.get('/*', function(req,res) {    
+    res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html'));
+});
 
 
 // Start the app by listening on the default Heroku port
