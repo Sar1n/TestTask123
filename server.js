@@ -8,23 +8,6 @@ var gzipStatic = require('connect-gzip-static');
 //   .use(gzipStatic(__dirname + '/dist/TestLogin', { maxAge: oneDay }))
 
 
-
-
-//Install express server
-const express = require('express');
-const path = require('path');
-
-const app = express();
-
-// Serve only the static files form the dist directory
-app.use(express.gzipStatic(__dirname + '/dist/TestLogin'));
-
-app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html'));
-});
-
-
 const brotli = require('brotli');
 const fs = require('fs');
 const zlib = require('zlib');
@@ -58,6 +41,23 @@ dirs.forEach(dir => {
         }
     })
 })
+
+
+
+
+//Install express server
+const express = require('express');
+const path = require('path');
+
+const app = express();
+
+// Serve only the static files form the dist directory
+app.use(express.gzipStatic(__dirname + '/dist/TestLogin'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html'));
+});
 
 
 // Start the app by listening on the default Heroku port
