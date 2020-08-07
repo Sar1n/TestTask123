@@ -25,7 +25,7 @@ var dirs = ['.'];
 dirs.forEach(dir => {
     fs.readdirSync(dir).forEach(file => {
         if (file.endsWith('.js') || file.endsWith('.css') || file.endsWith('.html')) {
-            console.log(file);
+            //console.log(file);
             // brotli
             const result = brotli.compress(fs.readFileSync(dir + '/' + file), brotliSettings);
             fs.writeFileSync(dir + '/' + file + '.br', result);
@@ -48,7 +48,7 @@ var express = require("express");
 var expressStaticGzip = require("express-static-gzip");
 var app = express();
 //app.use("/", expressStaticGzip("/dist/TestLogin"));
-
+var compress = require('compression');
 
 
 //Install express server
@@ -57,9 +57,8 @@ const path = require('path');
 // const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/TestLogin'));
+//app.use(express.static(__dirname + '/dist/TestLogin'));
 
-var compress = require('compression');
 app.use(compression());
 
 app.get('/*', function(req,res) {    
