@@ -61,7 +61,7 @@ const path = require('path');
 
 app.get('/*', function(req,res) {
     
-res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html'));
+res.sendFile(path.join(__dirname+'/dist/TestLogin/index.html.br'));
 });
 
 
