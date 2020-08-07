@@ -1,4 +1,4 @@
-var gzipStatic = require('connect-gzip-static');
+// var gzipStatic = require('connect-gzip-static');
 // var oneDay = 86400000;
 
 // connect()
@@ -44,18 +44,20 @@ dirs.forEach(dir => {
 
 
 
+var express = require("express");
+var expressStaticGzip = require("express-static-gzip");
+var app = express();
+app.use("/", expressStaticGzip("/dist/TestLogin"));
+
+
 
 //Install express server
-const express = require('express');
+// const express = require('express');
 const path = require('path');
-
-const app = express();
+// const app = express();
 
 // Serve only the static files form the dist directory
-//app.use(express.gzipStatic(__dirname + '/dist/TestLogin'));
-
-
-app.use(gzipStatic(__dirname + '/dist/TestLogin'))
+// app.use(express.get(__dirname + '/dist/TestLogin'));
 
 app.get('/*', function(req,res) {
     
