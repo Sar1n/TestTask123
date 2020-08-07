@@ -55,8 +55,7 @@ const app = express();
 //app.use(express.gzipStatic(__dirname + '/dist/TestLogin'));
 
 
-connect()
-  .use(gzipStatic(__dirname + '/dist/TestLogin'))
+app.use(gzipStatic(__dirname + '/dist/TestLogin'))
 
 app.get('/*', function(req,res) {
     
